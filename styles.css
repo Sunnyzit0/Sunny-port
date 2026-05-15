@@ -432,7 +432,6 @@ section {
 }
 
 /* ── Responsive ─────────────────────────────────────────── */
-<<<<<<< HEAD
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -546,9 +545,6 @@ section {
     position: relative;
   }
 
-=======
-@media (max-width: 768px) {
->>>>>>> 5dbeaf969644c343859f6b1545c2542e01cae309
   .hero-content {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -571,14 +567,6 @@ section {
     grid-template-columns: 1fr;
   }
 
-<<<<<<< HEAD
-=======
-  .nav-links {
-    gap: 1rem;
-    font-size: 0.75rem;
-  }
-
->>>>>>> 5dbeaf969644c343859f6b1545c2542e01cae309
   .section-title {
     font-size: 1.5rem;
   }
