@@ -113,7 +113,7 @@
             <h3>Tex Bot Backend</h3>
             <span class="arrow">→</span>
           </div>
-          <p class="project-description">Backend de um bot desenvolvido em JavaScript com Node.js. Projeto em desenvolvimento ativo.</p>
+          <p class="project-description">Bot do Discord com inúmeras funcionalidades — moderação, comandos customizados, integração com APIs e muito mais. Backend desenvolvido em Node.js, em desenvolvimento ativo.</p>
           <div class="project-tags">
             <span class="tag">JavaScript</span>
             <span class="tag">Node.js</span>
@@ -130,10 +130,42 @@
       <div class="accent-line"></div>
       
       <div class="skills-grid">
-        <div class="skill-badge">HTML</div>
-        <div class="skill-badge">CSS</div>
-        <div class="skill-badge">JavaScript</div>
-        <div class="skill-badge">Python</div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">HTML</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-bar-bg">
+            <div class="skill-bar-fill" style="--pct: 80%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">CSS</span>
+            <span class="skill-pct">70%</span>
+          </div>
+          <div class="skill-bar-bg">
+            <div class="skill-bar-fill" style="--pct: 70%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">JavaScript</span>
+            <span class="skill-pct">35%</span>
+          </div>
+          <div class="skill-bar-bg">
+            <div class="skill-bar-fill" style="--pct: 35%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Python</span>
+            <span class="skill-pct">20%</span>
+          </div>
+          <div class="skill-bar-bg">
+            <div class="skill-bar-fill" style="--pct: 20%"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -144,9 +176,42 @@
       <h2 class="section-title">Entrar em contato</h2>
       <div class="accent-line"></div>
       
-      <p class="contact-description">Estou sempre aberto a novas oportunidades e colaborações. Sinta-se livre para entrar em contato comigo através de qualquer um dos canais abaixo.</p>
-      
-      <div class="social-links">
+      <p class="contact-description">Estou sempre aberto a novas oportunidades e colaborações. Manda uma mensagem — respondo em até 24h.</p>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div>
+          <div class="form-label" style="margin-bottom: 0.5rem;">Assunto</div>
+          <div class="subject-chips">
+            <button type="button" class="chip active" onclick="selectChip(this)">💼 Oportunidade</button>
+            <button type="button" class="chip" onclick="selectChip(this)">🤝 Colaboração</button>
+            <button type="button" class="chip" onclick="selectChip(this)">💬 Só um oi</button>
+            <button type="button" class="chip" onclick="selectChip(this)">🐛 Feedback</button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="inp-name">Nome</label>
+            <input class="form-input" type="text" id="inp-name" placeholder="Seu nome" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="inp-email">Email</label>
+            <input class="form-input" type="email" id="inp-email" placeholder="seu@email.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="inp-msg">Mensagem</label>
+          <textarea class="form-textarea" id="inp-msg" placeholder="Escreve à vontade..."></textarea>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary" id="btn-send" style="margin-top: 0;">Enviar mensagem →</button>
+          <span class="form-status" id="form-status"></span>
+        </div>
+      </form>
+
+      <div class="social-links" style="margin-top: 3rem;">
         <a href="https://github.com/Sunnyzit0" target="_blank" class="social-link" title="GitHub">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>

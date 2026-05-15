@@ -45,6 +45,89 @@ document.querySelectorAll('section').forEach(section => {
   observer.observe(section);
 });
 
+// ── Skill bars: animate on scroll ───────────────────────
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.skill-item').forEach(item => {
+  skillObserver.observe(item);
+});
+
+// ── Project cards: stagger on scroll ────────────────────
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.project-card').forEach(card => {
+  cardObserver.observe(card);
+});
+
+// ── Contact form ─────────────────────────────────────────
+function selectChip(el) {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeenyqrz';
+
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name    = document.getElementById('inp-name').value.trim();
+    const email   = document.getElementById('inp-email').value.trim();
+    const msg     = document.getElementById('inp-msg').value.trim();
+    const subject = document.querySelector('.chip.active')?.textContent.trim() || '';
+    const btn     = document.getElementById('btn-send');
+    const status  = document.getElementById('form-status');
+
+    const showStatus = (text, type) => {
+      status.textContent = text;
+      status.className = `form-status visible ${type}`;
+    };
+
+    if (!name || !email || !msg) { showStatus('Preencha todos os campos.', 'error'); return; }
+    if (!/\S+@\S+\.\S+/.test(email)) { showStatus('Email inválido.', 'error'); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    status.className = 'form-status';
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, message: msg, subject })
+      });
+
+      if (res.ok) {
+        showStatus('✓ Mensagem enviada! Responderei em breve.', 'success');
+        btn.textContent = 'Enviado ✓';
+        this.reset();
+        document.querySelectorAll('.chip').forEach((c, i) => c.classList.toggle('active', i === 0));
+        setTimeout(() => { btn.disabled = false; btn.textContent = 'Enviar mensagem →'; }, 3000);
+      } else {
+        throw new Error('Erro no envio');
+      }
+    } catch {
+      showStatus('Erro ao enviar. Tente novamente.', 'error');
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem →';
+    }
+  });
+}
+
 // Avatar fallback
 const avatar = document.getElementById('avatar');
 if (avatar) {
