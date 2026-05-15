@@ -125,6 +125,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
+<<<<<<< HEAD
 // ── Hamburger menu (mobile) ──────────────────────────────
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -184,4 +185,6 @@ if (dmEgg) {
   });
 }
 
+=======
+>>>>>>> 5dbeaf969644c343859f6b1545c2542e01cae309
 console.log('Arthur Portfolio loaded successfully! 🚀');
